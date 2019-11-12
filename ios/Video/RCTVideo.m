@@ -150,7 +150,9 @@ static int const RCTVideoUnset = -1;
     
     // Create ads rendering settings and tell the SDK to use the in-app browser.
     IMAAdsRenderingSettings *adsRenderingSettings = [[IMAAdsRenderingSettings alloc] init];
-    adsRenderingSettings.webOpenerPresentingController = self;
+    UIViewController *rootViewController = RCTPresentedViewController();
+    adsRenderingSettings.webOpenerDelegate = rootViewController;
+    adsRenderingSettings.webOpenerPresentingController = rootViewController;
     
     // Initialize the ads manager.
     [_adsManager initializeWithAdsRenderingSettings:adsRenderingSettings];
