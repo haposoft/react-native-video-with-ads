@@ -67,6 +67,10 @@ export default class Video extends Component {
     }
   };
 
+  play = () => {
+    this.setNativeProps({ paused: false });
+  };
+
   presentFullscreenPlayer = () => {
     this.setNativeProps({ fullscreen: true });
   };
